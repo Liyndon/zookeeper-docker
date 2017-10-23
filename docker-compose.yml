@@ -1,5 +1,4 @@
-version: '3.1'
-
+version: '3.4.10'
 services:
   zoo1:
     image: hub.c.163.com/lxy940112/zookeeper:3.4.10
@@ -10,21 +9,21 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
-    zoo2:
-      image: hub.c.163.com/lxy940112/zookeeper:3.4.10
-      restart: always
-      hostname: zoo2
-      ports:
-        - 2182:2181
-      environment:
-        ZOO_MY_ID: 2
-        ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
-    zoo3:
-      image: 31z4/zookeeper
-      restart: always
-      hostname: zoo3
-      ports:
-        - 2183:2181
-      environment:
-        ZOO_MY_ID: 3
-        ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+  zoo2:
+    image: hub.c.163.com/lxy940112/zookeeper:3.4.10
+    restart: always
+    hostname: zoo2
+    ports:
+      - 2182:2181
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+  zoo3:
+    image: 31z4/zookeeper
+    restart: always
+    hostname: zoo3
+    ports:
+      - 2183:2181
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
